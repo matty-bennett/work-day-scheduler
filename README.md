@@ -6,4 +6,4 @@ This webpage presents a daily schedule that allows users to save events to diffe
 - Save buttons for saving events to local storage.
 - Color-coded time blocks to tell users when an hour is past(grey), current(red), or future(green).
 <img src="./assets/workday-screenshot.png">
-link: 
+link: https://matty-bennett.github.io/work-day-scheduler/
