@@ -7,6 +7,7 @@ let events = [];
 // display current date in header
 currentDay.append(currentTime);
 
+// load time block events back onto page
 var loadEvents = () => {
     events = JSON.parse(localStorage.getItem("events"));
 
@@ -15,14 +16,13 @@ var loadEvents = () => {
     }
 }
 
+// save events to local storage
 var saveEvents = () => {
     localStorage.setItem("events", JSON.stringify(events))
 }
 
-$(".save").on("click", function() {
-    var text = textAreaEl.val();
-    events.text = text;
-    saveEvents();
+$(".saveBtn").on("click", function() {
+    
 })
 
 //Change textarea background color on diff hours
@@ -33,19 +33,16 @@ var checkTime = function () {
 
     var timeBlocks = $(".textarea");
 
-    //loop through textarea classes
+    // loop through all textarea elements
     for (var i = 0 ; i < timeBlocks.length ; i++) {
 
-        //Get element i's ID as a string
         var elementId = timeBlocks[i].id;
 
-        //get element by ID
         var eventId = document.getElementById(timeBlocks[i].id)
 
-        //remove any old classes from element
         $(timeBlocks[i].id).removeClass(".present .past .future");
 
-        // apply new class if task is present/past/future
+        // apply new class if event is present/past/future
         if (elementId < currentTime) {
             $(eventId).addClass("past");
         } else if (elementId > currentTime) {
